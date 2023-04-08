@@ -30,6 +30,15 @@ Esse webserver tem duas principais features:
 * Controlar o tempo de cache dos objetos
 * Controlar redirects dinâmicos
 
+O webserver tem uma API para a criação, atualização, remoção e listagem das configurações.
+
+```
+GET /configs
+GET /configs/<id>
+POST /configs
+DELETE /configs/<id>
+```
+
 ## Requisitos
 
 * O webserver deve estar sempre com a configuração mais atualizada
