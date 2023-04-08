@@ -22,7 +22,9 @@ flowchart BT
     D[User] -->|Manage configs| C
 ```
 
-## Sobre o webserver
+## Sobre o webservice
+
+### Webserver
 
 Vamos criar um webserver básico apenas para fim de demonstrar como aplicar as configurações.
 
@@ -37,6 +39,32 @@ GET /configs
 GET /configs/<id>
 POST /configs
 DELETE /configs/<id>
+```
+
+### ConfigManager
+
+O ConfigManager precisa atualizar as configurações sempre que uma configuração é atualizada, criada, removida, etc.
+
+Os dados devem ser sincronizados com a API de configurações.
+
+## Sobre a API de configurações
+
+A API de configurações é o ponto de gerência das configurações do webserver mais focado em clientes.
+
+Clientes precisam modificar o tempo de cache de uma imagem, por exemplo, pra isso elas precisam poder alterar esse valor em uma aplicação, a nossa API de configurações.
+
+O webserver deve atualizar após a configuração for salva, ou removida. Uma ação na API de configuração implica em uma mudança no webserver.
+
+### Configurando cache
+
+Clientes podem escolher para uma _rota_ um _tempo de expiração_ ou um _redirect_, por exemplo.
+
+```json
+{
+  "path": "/images/.jpg*",
+  "expire_in": 600,
+  "redirect_to": ""
+}
 ```
 
 ## Requisitos
