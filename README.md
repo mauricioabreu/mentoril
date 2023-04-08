@@ -12,6 +12,16 @@ Para configurar esse webserver, precisamos coletar informações de uma API exte
 
 O webserver conta com uma API usada para instalar, atualizar, listar e deletar essas configurações.
 
+
+```mermaid
+flowchart BT
+    subgraph webservice
+    A[ConfigManager] --> |Install configs| B[webserver]
+    end
+    A -->|Fetch config| C[API]
+    D[User] -->|Manage configs| C
+```
+
 ## Sobre o webserver
 
 Vamos criar um webserver básico apenas para fim de demonstrar como aplicar as configurações.
